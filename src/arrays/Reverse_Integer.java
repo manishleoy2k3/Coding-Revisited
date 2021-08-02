@@ -41,7 +41,7 @@ public class Reverse_Integer {
 		return k;
 	}
 	
-	public static isPallindrom(int x, int y){
+	public static boolean isPallindrom(int x, int y){
 	if(x==y) 
 		return true;
 	else return false;
@@ -49,7 +49,7 @@ public class Reverse_Integer {
 	public static void main(String[] args) {
 
 		int num1 = 1534236469;
-		System.out.println(Reverse_Integer.isPallindrom(num1, Reverse_Integer.reverse_Integer(num1));
+		System.out.println(Reverse_Integer.isPallindrom(num1, Reverse_Integer.reverse_Integer(num1)));
 		System.out.println(Reverse_Integer.reverse_Integer(num1));
 	}
 }

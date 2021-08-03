@@ -1,4 +1,4 @@
-package arrays;
+package simple;
 
 
 public class Reverse_Integer {
@@ -18,8 +18,7 @@ public class Reverse_Integer {
 	 * @param x
 	 * @return
 	 */
-	public static int reverse_Integer(int x) {
-		
+	public static int reverse_Integer(int x) {		
 		int max = Integer.MAX_VALUE / 10, min = Integer.MIN_VALUE / 10;
 		int k = 0;
 
@@ -41,14 +40,40 @@ public class Reverse_Integer {
 		return k;
 	}
 	
-	public static boolean isPallindrom(int x, int y){
+	public boolean isPalindrome(int x) {
+		int i=x;
+		int max = Integer.MAX_VALUE / 10, min = Integer.MIN_VALUE / 10;
+		int k = 0;
+		//for negative values and number multiple of 10 or ending with 0
+        if(x < 0 || (x % 10 == 0 && x != 0)) {
+            return false;
+        }
+		while (x != 0) {
+			k = k * 10 + (x % 10);
+			x = x / 10;
+			//Handling edge/exceptional cases
+			if (x != 0 && (k > max || k < min)) {
+				return false;
+			} else if (k == max) {
+				if (x > 7)
+					return false;
+			} else if (k == min) {
+				if (x < -8)
+					return false;
+			}
+		}
+		if(k==i)return true;
+		else return false;
+	}
+	
+	public static String isPallindrom(int x, int y){
 	if(x==y) 
-		return true;
-	else return false;
+		return "palindrom";
+	else return "Not Pallindrom";
 	}
 	public static void main(String[] args) {
 
-		int num1 = 1534236469;
+		int num1 = -121;
 		System.out.println(Reverse_Integer.isPallindrom(num1, Reverse_Integer.reverse_Integer(num1)));
 		System.out.println(Reverse_Integer.reverse_Integer(num1));
 	}

@@ -4,33 +4,78 @@ import java.util.HashSet;
 
 public class Duplicates_In_Arrays {
 
+	/*
+	Remove Duplicates from Sorted Array.
+
+	Algorithm:
+	1. let i and j be two pointers
+	2. initially i=0th index
+	             j=1st index
+	3. if value at ith and jth index are same then increment j
+	4. if values are not same then we increment i and copy value from jth index to ith index and then increment j
+	*/
+	public static int removeDuplicates(int[] nums) {
+		int i=0, j=1;
+		if(nums.length==1 ||nums.length==0 )
+        {
+            return nums.length;
+        }
+		for(;j<nums.length; ){
+        	if(nums[i] != nums[j]){
+        		i++;
+        		nums[i]=nums[j];
+        	}
+        	j++;
+        }
+		return i+1;
+    }
+	
 	/**
-	 * Given an integer array nums, return true if any value appears at least twice in the array, 
-	 * and return false if every element is distinct.
+	 * Given an integer array nums and an integer val, remove all occurrences of val in nums in-place. 
+	 * The relative order of the elements may be changed.
+	 * Since it is impossible to change the length of the array in some languages, 
+	 * you must instead have the result be placed in the first part of the array nums. 
+	 * More formally, if there are k elements after removing the duplicates, 
+	 * then the first k elements of nums should hold the final result. 
 	 * 
-	 * Example 1: Input: nums = [1,2,3,1] Output: true
-	 * Example 2: Input: nums = [1,2,3,4] Output: false
-	 * Example 3: Input: nums = [1,1,1,3,3,4,3,2,4,2] Output: true
-	 *
-	 * Constraints: 
-	 * 1 <= nums.length <= 105 
-	 * -109 <= nums[i] <= 109
-	 *
+	 * It does not matter what you leave beyond the first k elements.
+	 * Return k after placing the final result in the first k slots of nums.
+	 * Do not allocate extra space for another array. You must do this by modifying the 
+	 * input array in-place with O(1) extra memory.
+	 * 
 	 * @param nums
+	 * @param val
 	 * @return
 	 */
-	public static boolean containsDuplicate(int[] nums) {
+	public static int removeElement(int[] nums, int val) {
+		int n = nums.length;
+        if(n==0) return 0;
+        if(n==1 && nums[0]!=val) return 1;
+        if(n==1 && nums[0]==val) return 0;
         
-		HashSet<Integer> set=new HashSet<Integer>();
-        for(int i=0; i<nums.length; i++){
-        	if(!set.add(nums[i]))
-        		return true;
+		int i=0, j=n-1;
+		
+		while(i<j){
+        	if(nums[i] == val){
+        		int tmp = nums[i];
+        		nums[i] = nums[j];
+        		nums[j] = tmp;
+        		j--;
+        	}
+        	else i++;
         }
-		return false;
-	}
+		
+		while(i>=0 && nums[i] == val) i--;
+        if (i == 0 && nums[i]==val) return 0; 
+                
+		return i+1;
+    }
+
 	public static void main(String[] args) {
 
-		int[] nums = {1,1,1,3,3,4,3,2,4,2};
-		System.out.println(Duplicates_In_Arrays.containsDuplicate(nums));
-	}	
+		int[] nums = {3,6,3,6,7,8,3};
+		
+		System.out.println(Remove_duplicates.removeElement(nums, 3));
+		//System.out.println(Remove_duplicates.removeDuplicates(nums));
+	}
 }

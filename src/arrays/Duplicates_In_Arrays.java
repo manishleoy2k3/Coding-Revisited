@@ -75,7 +75,7 @@ public class Duplicates_In_Arrays {
 
 		int[] nums = {3,6,3,6,7,8,3};
 		
-		System.out.println(Remove_duplicates.removeElement(nums, 3));
+		System.out.println(Duplicates_In_Arrays.removeElement(nums, 3));
 		//System.out.println(Remove_duplicates.removeDuplicates(nums));
 	}
 }

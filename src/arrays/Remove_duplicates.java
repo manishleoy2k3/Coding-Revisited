@@ -1,7 +1,7 @@
 package arrays;
 
 
-public class Remove_duplicates_From_Sorted_Arrays {
+public class Remove_duplicates {
 
 	/*
 	Remove Duplicates from Sorted Array.
@@ -33,7 +33,7 @@ public class Remove_duplicates_From_Sorted_Arrays {
 
 		int[] nums = {1,1,1,2};
 		
-		System.out.println(Remove_duplicates_From_Sorted_Arrays.removeDuplicates(nums));
+		System.out.println(Remove_duplicates.removeDuplicates(nums));
 	}
 
 }

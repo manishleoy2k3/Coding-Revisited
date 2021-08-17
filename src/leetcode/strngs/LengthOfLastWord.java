@@ -1,4 +1,4 @@
-package strings;
+package leetcode.strngs;
 
 import java.util.ArrayList;
 import java.util.List;

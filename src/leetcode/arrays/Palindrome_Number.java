@@ -1,4 +1,4 @@
-package arrays;
+package leetcode.arrays;
 
 public class Palindrome_Number {
 

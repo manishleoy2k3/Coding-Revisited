@@ -1,7 +1,5 @@
-package integer;
+package hackerrank.integer;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class ConvertToBinary {
 
@@ -25,7 +23,7 @@ public class ConvertToBinary {
 			}
 			System.out.print(list.get(i));
 		}
-		System.out.print("   :"+count);
+		System.out.print("Max count of 1 in this binary number is   :"+m);
 	}*/
 
 		int n = 125;

@@ -1,4 +1,4 @@
-package arrays;
+package hackerrank.arrays;
 
 
 class RotateLeft_Arrays {  

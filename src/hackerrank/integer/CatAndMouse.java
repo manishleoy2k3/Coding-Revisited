@@ -1,4 +1,4 @@
-package integer;
+package hackerrank.integer;
 
 public class CatAndMouse {
 

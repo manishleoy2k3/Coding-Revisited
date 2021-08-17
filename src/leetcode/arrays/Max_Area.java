@@ -1,4 +1,4 @@
-package arrays;
+package leetcode.arrays;
 
 /**
  * you are given an array of positive integers where each integer represents the height

@@ -1,4 +1,4 @@
-package strings;
+package hackerrank.strngs;
 
 import java.util.HashSet;
 

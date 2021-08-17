@@ -1,6 +1,5 @@
 package arrays;
 
-import java.util.HashSet;
 
 public class Duplicates_In_Arrays {
 

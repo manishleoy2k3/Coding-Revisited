@@ -3,10 +3,8 @@ package arrays;
 public class Palindrome_Number {
 
 	public static boolean isPalindrome(int x) {
-		
-		Boolean val = null;
 		int max = Integer.MAX_VALUE / 10, min = Integer.MIN_VALUE / 10;
-		int k = 0;
+		int k = 0, orig=x;
 
 		while (x != 0) {
 			k = k * 10 + (x % 10);
@@ -23,11 +21,12 @@ public class Palindrome_Number {
 					return false;
 			}
 		}
-		return val;
+		if(k==orig) return true;
+		else return false;
     }
 	public static void main(String[] args) {
 
-		int i=123;
+		int i=126;
 		System.out.println(Palindrome_Number.isPalindrome(i));
 	}
 

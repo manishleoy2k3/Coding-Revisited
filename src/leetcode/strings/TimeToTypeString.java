@@ -27,7 +27,7 @@ import java.util.Map;
  * The total time will therefore be 2 + 1 + 1 = 4.
  * 
  */
-public class Google_TimeToTypeString {
+public class TimeToTypeString {
 
 	public static void main(String[] args) {
 		

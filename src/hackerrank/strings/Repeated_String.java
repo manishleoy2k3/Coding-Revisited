@@ -1,4 +1,4 @@
-package strings;
+package hackerrank.strings;
 
 /**
  * There is a string, s , of lowercase English letters that is repeated infinitely many times. 

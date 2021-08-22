@@ -1,4 +1,4 @@
-package arrays;
+package hackerrank.arrays;
 
 import java.util.ArrayList;
 import java.util.HashSet;

@@ -1,4 +1,4 @@
-package integer;
+package leetcode.integer;
 
 
 public class Reverse_Integer {

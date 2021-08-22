@@ -1,4 +1,4 @@
-package hackerrank.strngs;
+package hackerrank.strings;
 
 /**
  * There is a sequence of words in CamelCase as a string of letters, , having the following properties:

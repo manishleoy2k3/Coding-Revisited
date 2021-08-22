@@ -1,4 +1,4 @@
-package hackerrank.arrays;
+package leetcode.list;
 
 public class Sample {
 

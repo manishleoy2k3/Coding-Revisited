@@ -1,4 +1,4 @@
-package hackerrank.strngs;
+package hackerrank.strings;
 
 /**
  * Reduce a string of lowercase characters in range ascii[‘a’..’z’]by doing a series of operations. 

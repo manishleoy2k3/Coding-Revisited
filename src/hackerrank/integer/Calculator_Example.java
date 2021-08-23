@@ -29,34 +29,47 @@ class Calculator{
 
 	public static List<Integer> closestNumbers(List<Integer> arr) {
 		List<Integer> result = new ArrayList<Integer>();
-		
+		Long diff = Long.MAX_VALUE;
+        //String output =  "";
+        for(int i=0;i<arr.size()-1;i++) {
+           if((arr.get(i+1)-arr.get(i))  <= diff)
+        	   diff = (long) (arr.get(i+1)-arr.get(i));
+        }
+        for(int i=0;i<arr.size()-1;i++) {
+             if((arr.get(i+1)-arr.get(i)) == diff) {
+            	 result.add(arr.get(i));
+            	 result.add(arr.get(i+1));
+                 //output += arr.get(i) + " " +arr.get(i+1)+" ";
+             }
+		}
+		//List<Integer> result = new ArrayList<Integer>();
+		/*		
 		Collections.sort(arr);
+		System.out.print(arr);
 		result.add(arr.get(0));
-		result.add(arr.get(1));
-		
+		result.add(arr.get(1));		
 		int diff1=0;
-		int diff= Math.abs((result.get(1) - result.get(0)));
+		int diff= Math.abs((arr.get(1) - arr.get(0)));
 		
-		for(int i=2; i< arr.size()-1; i++) {
-			diff1 = Math.abs((result.get(i) - result.get(i-1)));
+		System.out.println(diff);
+		for(int i=2; i < arr.size(); i++) {
+			diff1 = Math.abs((arr.get(i) - arr.get(i-1))); 
 			if(diff == diff1) {
-				result.add(arr.get(i));
-				result.add(arr.get(i+1));
+				result.add(arr.get(i-1));
+				result.add(arr.get(i)); 
 			}
 		}
-		return result;
+*/		return result;
 	}
 }
-
-public class Calculator_Example {
-	
-	public static void main(String[] args) {
-		
+public class Calculator_Example {	
+	public static void main(String[] args) {		
 		List<Integer> arr = new ArrayList<Integer>();
-		arr.add(5);
-		arr.add(4);
-		arr.add(3);
-		arr.add(2);
+		//-20 -3916237 -357920 -3620601 7374819 -7330761 30 6246457 -6461594 266854 -520 -470
+		arr.add(-20); arr.add(-3916237); arr.add(-357920); arr.add(-3620601);
+		arr.add(7374819); arr.add(-7330761); arr.add(30); arr.add(6246457);
+		arr.add(-6461594); arr.add(-266854); arr.add(-520); arr.add(-470);
+		
 		System.out.println(Calculator.closestNumbers(arr));
 		
 		/*Scanner in = new Scanner(System.in);

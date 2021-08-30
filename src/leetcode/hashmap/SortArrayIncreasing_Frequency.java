@@ -13,27 +13,21 @@ public class SortArrayIncreasing_Frequency {
 
 	public static int[] frequencySort(int[] nums) {
 		
-		Map<Integer,Integer> m=new HashMap<>();
-		
-	    int n=nums.length;
-	    for(int i=0;i<n;i++){
-	        if(m.containsKey(nums[i])){
-	            int x=m.get(nums[i]);
-	            m.put(nums[i],x+1);
-	        }else{
+		/*Map<Integer,Integer> m=new HashMap<>();
+	    for(int i=0;i<nums.length;i++){
+	        if(m.containsKey(nums[i]))
+	            m.put(nums[i],m.get(nums[i])+1);
+	        else
 	            m.put(nums[i],1);
-	        }
 	    }
 	    
 	    List<Map.Entry<Integer,Integer>> l=new LinkedList<>(m.entrySet());
-	    
 	    Collections.sort(l,new Comparator<Map.Entry<Integer,Integer>>(){
 	        public int compare(Map.Entry<Integer,Integer> o1,Map.Entry<Integer,Integer> o2){
-	            if(o1.getValue()-o2.getValue()==0){
+	            if(o1.getValue()-o2.getValue()==0)
 	                return o2.getKey()-o1.getKey();
-	            }else{
+	            else
 	                return o1.getValue()-o2.getValue();
-	            }
 	        }
 	    });
 	    int k=0;
@@ -47,60 +41,38 @@ public class SortArrayIncreasing_Frequency {
 	    for(int a=0; a<nums.length; a++) {
 	    	System.out.print(nums[a]);
 	    }
-	    return nums;
+	    return nums;*/
 		
-		/*int[] res = null;
+		//Logic2:
 		Arrays.sort(nums);
 		List<Integer> list = new ArrayList<Integer>(nums.length);
-		//System.out.println(list.size());
 		for(int i=0; i < nums.length; i++) {
         	list.add(i, nums[i]);
         }
-		//System.out.println(list.toString());
-        Map<Integer, Integer> mp= new HashMap<Integer, Integer>();
-        Map<Integer, Integer> mpindex= new HashMap<Integer, Integer>();
-        
+        Map<Integer, Integer> mp= new HashMap<Integer, Integer>();        
         for (int i = 0; i < nums.length; i++) {
-        	if (mp.containsKey(nums[i])) {
+        	if (mp.containsKey(nums[i]))
         		mp.put(nums[i], mp.get(nums[i]) + 1);
-        	}
         	else
-        	{
         		mp.put(nums[i], 1);
-        		mpindex.put(nums[i], i);
-        	}
         }
-        
-        // custom Comparator
+        // custom Comparator to sort array
         Collections.sort(list, new Comparator<Integer>() {
-            public int compare(Integer n1, Integer n2)
-            {
-                int freq1 = mp.get(n1);
-                int freq2 = mp.get(n2);
-                if (freq1 != freq2) {
-                    return freq1 - freq2;
-                }
-                else {
-                	if(n1 > n2) {
-                		return n1;
-                	}else {
-                		return n2;
-                	}else {
-                		// Elements with lesser index gets higher priority
-                        return mpindex.get(n2) - mpindex.get(n1);
-                	}
-                }
+            public int compare(Integer n1, Integer n2) {
+                if (mp.get(n1) - mp.get(n2) ==0)
+                	return n2 - n1;
+                else
+                	return mp.get(n1) - mp.get(n2);
             }
         });
-        System.out.println(list);
-        res = new int[list.size()];
+        int[] res = new int[list.size()];
         for(int i=0; i<res.length; i++) {
         	res[i] = list.get(i); 
         }
-        return res;*/
+        return res;
     }
 	public static void main(String[] args) {
-		int arr[] = {1,5,0,5};
+		int arr[] = {-1,1,-6,4,5,-6,1,4,1}; //{1,5,0,5};
 		SortArrayIncreasing_Frequency.frequencySort(arr);
 	}
 

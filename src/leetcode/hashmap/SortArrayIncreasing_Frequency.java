@@ -21,7 +21,7 @@ public class SortArrayIncreasing_Frequency {
 		 * List<Map.Entry<Integer,Integer>> l=new LinkedList<>(m.entrySet());
 		 * Collections.sort(l,new Comparator<Map.Entry<Integer,Integer>>(){ public int
 		 * compare(Map.Entry<Integer,Integer> o1,Map.Entry<Integer,Integer> o2){
-		 * if(o1.getValue()-o2.getValue()==0) return o2.getKey()-o1.getKey(); else
+		 * if(o1.getValue()-o2.getValue()==0) return o2.getKey()-o1.getKey(); else 
 		 * return o1.getValue()-o2.getValue(); } }); int k=0; for(int
 		 * i=0;i<l.size();i++){ int x=l.get(i).getValue(); while(x>0){
 		 * nums[k++]=l.get(i).getKey(); x--; } } for(int a=0; a<nums.length; a++) {

@@ -26,31 +26,19 @@ public class Maximizing_XOR {
     }
 
     public static int maximizingXor(int l, int r) {
-    	int max=0;
-    	int[] arr = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-		long k=0; int j=arr.length-1;		
-		//converting decimal to binary
-		
-		for(int i=l; i< r; i++){
-			
+		int max=0;
+		for(int i=l; i<= r; i++){
+			for(int j=l; j< r; j++){
+				max = Math.max(max, (i ^ j));
+				//System.out.print(i +" + "+ j +" => "+ max);
+				//System.out.println("");
+			}
 		}
-		/*while(n>0) {
-			k = n%2;
-			n = n/2;
-			arr[j] = (int) k;
-			j--;
-		}*/
-		
-		//converting binary back to decimal
-		int decimal = 0; int exp = 0;
-        for( int i = arr.length - 1; i > -1; i--){
-            decimal += arr[i] * pow(2, exp);
-            exp++;
-        }
-        return decimal;
+		max = Math.max(max, (r^r));
+        return max;
     }
-    
+ 
 	public static void main(String[] args) {
-		System.out.println(Maximizing_XOR.maximizingXor(11, 12));
+		System.out.println(Maximizing_XOR.maximizingXor(11, 100));
 	}
 }

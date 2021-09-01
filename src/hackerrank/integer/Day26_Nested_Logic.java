@@ -1,63 +1,51 @@
 package hackerrank.integer;
-
-import java.io.*;
-import java.math.*;
-import java.security.*;
-import java.text.*;
-import java.util.*;
-import java.util.concurrent.*;
-import java.util.function.*;
-import java.util.regex.*;
-import java.util.stream.*;
-import static java.util.stream.Collectors.joining;
 import static java.util.stream.Collectors.toList;
 
-public class Day26_Nested_Logic {
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Stream;
 
-	/*private static char[] calculateFine(int[][] arr) {
-		
-		return null;
-	}*/
+public class Day26_Nested_Logic {
 	
-	private static char[] calculateFine(List<List<Integer>> date_returned, List<List<Integer>> due_date) {
+	private static int calculateFine(List<Integer> date_returned, List<Integer> due_date) {
 		
-		for(int i=0; i < date_returned.size()-1; i++) {
-			System.out.println(date_returned.get(i));
-			System.out.println(due_date.get(i));
+		int fine=0;
+		int due_year = due_date.get(2);
+		int year_returned = date_returned.get(2);
+		if(year_returned > due_year) { // year is different
+			fine = 10000;
+		}else if(year_returned < due_year){
+			fine = 0;
+		}else { // year is same
+			if(date_returned.get(1) <= due_date.get(1)) { // month is same
+				if(date_returned.get(0) <= due_date.get(0)){
+					fine = 0;
+				}else{
+					fine = 15 * Math.abs(date_returned.get(0) - due_date.get(0));
+				}
+			}else if(date_returned.get(1) > due_date.get(1)){ //month is different
+				fine = 500 * Math.abs(date_returned.get(1) - due_date.get(1));
+			}
 		}
-		return null;
+		return fine;
 	}
 	
-	public static void main(String[] args) throws IOException {
-		/*Scanner scan = new Scanner(System.in);
-        int arr[][] = new int[2][3];
-        for (int row = 0; row < 2; row++) {
-            for (int col = 0; col < 3; col++) {
-                arr[row][col] = scan.nextInt();
-            }
-        }
-        scan.close();
-        System.out.println(calculateFine(arr));
-        System.out.println(arr);*/
-        
+	public static void main(String[] args) throws IOException { 
         
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        List<List<Integer>> date_returned = new ArrayList<>();
-        List<List<Integer>> due_date = new ArrayList<>();
+        List<Integer> date_returned = new ArrayList<Integer>();
+        List<Integer> due_date = new ArrayList<>();
+        try {
+        	date_returned = Stream.of(bufferedReader.readLine().replaceAll("\\s+$", "").split(" ")).map(Integer::parseInt).collect(toList());                             
+        	due_date = Stream.of(bufferedReader.readLine().replaceAll("\\s+$", "").split(" ")).map(Integer::parseInt).collect(toList());                
+        } catch (IOException ex) {
+        	throw new RuntimeException(ex);
+        }
+        System.out.println(calculateFine(date_returned, due_date));
         
-        IntStream.range(0, 2).forEach(i -> {
-            try {
-                date_returned.add(Stream.of(bufferedReader.readLine().replaceAll("\\s+$", "").split(" "))
-                        .map(Integer::parseInt).collect(toList()));
-                due_date.add(Stream.of(bufferedReader.readLine().replaceAll("\\s+$", "").split(" "))
-                        .map(Integer::parseInt).collect(toList()));
-                //System.out.println(date_returned);
-                //System.out.println(due_date);
-                System.out.println(calculateFine(date_returned, due_date));
-            } catch (IOException ex) {
-                throw new RuntimeException(ex);
-            }
-        });
         bufferedReader.close();
 	}
 }

@@ -26,7 +26,7 @@ public class ConvertToBinary {
 		System.out.print("Max count of 1 in this binary number is   :"+m);
 	}*/
 
-		int n = 125;
+		int n = 9;
 		
 		/* Logic No - 1*/
 		int consec1=0;

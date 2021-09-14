@@ -38,7 +38,7 @@ public class Flipping_Bits {
         return decimal;
 	}
 	public static void main(String[] args) {
-		long n=35601423;
+		long n=2;
 		System.out.println(Flipping_Bits.flippingBits(n));
 	}
 }

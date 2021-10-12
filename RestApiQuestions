@@ -1,0 +1,20 @@
+REST API Testing Interview Questions :
+=======================================================================
+- difference between API and Web Service?
+- what is Idempotent. is PUT idempotent operation?
+- is responses of POST call is cachable? ANS: NO
+- is responses of PUT call is cachable? ANS: Yes
+- what is the purpose of OPTIONS method in RESTful web services?
+- difference between PUT and Patch
+- different type of responses
+- what is Service virtualization ?
+- different types of status codes
+- what are the main challanges faced in API Testing? ANS: parameter selection and combination
+- Load testing of API
+- API documentation testing
+- what are API Documentation tamplates?
+- Protocol used in RESTful web services - ANS: HTTP
+- 
+
+- transport method in SOAP? ANS: HTTP and SMTP
+- 
